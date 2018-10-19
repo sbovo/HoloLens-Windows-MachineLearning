@@ -29,9 +29,9 @@ public class StartScanning : MonoBehaviour {
     }
 
     /// <summary>
-    /// - Modify the text to be displayed in the FOV
+    /// Modify the text to be displayed in the FOV
     /// or/and in the debug traces
-    /// - Indicate that we have to update the text to display
+    /// + Indicate that we have to update the text to display
     /// </summary>
     /// <param name="newText">new string value to display</param>
     private void ModifyOutputText(string newText)
@@ -39,7 +39,6 @@ public class StartScanning : MonoBehaviour {
         OutputTextString = newText;
         OutputTextChanged = true;
     }
-
 
     // Update is called once per frame
     void Update () {
