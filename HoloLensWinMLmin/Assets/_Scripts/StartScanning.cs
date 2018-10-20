@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class StartScanning : MonoBehaviour {
 
-
 	// Unity 3D Text object that contains 
 	// the displayed TextMesh in the FOV
 	public GameObject OutputText;
@@ -14,6 +13,7 @@ public class StartScanning : MonoBehaviour {
 	private string OutputTextString = string.Empty;
 	// Indicate if we have to Update the text displayed
 	bool OutputTextChanged = false;
+
 
 	// Use this for initialization
 	void Start ()
@@ -48,9 +48,4 @@ public class StartScanning : MonoBehaviour {
 			OutputTextChanged = false;
 		}
 	}
-
-
-
-
-
 }
