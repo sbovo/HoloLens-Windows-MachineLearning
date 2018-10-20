@@ -1,4 +1,5 @@
-﻿using System;
+﻿#if UNITY_WSA && !UNITY_EDITOR
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,7 +16,6 @@ public class CameraHelper
 
     private MediaCapture CameraCapture;
     private MediaFrameReader CameraFrameReader;
-
 
     private Int64 FramesCaptured;
 
@@ -118,3 +118,4 @@ public class CameraHelper
 
 }
 
+#endif

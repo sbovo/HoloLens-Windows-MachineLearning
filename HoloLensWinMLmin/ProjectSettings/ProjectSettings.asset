@@ -565,7 +565,7 @@ PlayerSettings:
   m_MobileRenderingPath: 1
   metroPackageName: HoloLensWinMLmin
   metroPackageVersion: 
-  metroCertificatePath: C:\_Dev\GitHub\sbovo\HoloLens-Windows-MachineLearning\HoloLensWinMLmin\Assets\WSATestCertificate.pfx
+  metroCertificatePath: Assets\WSATestCertificate.pfx
   metroCertificatePassword: 
   metroCertificateSubject: DefaultCompany
   metroCertificateIssuer: DefaultCompany
