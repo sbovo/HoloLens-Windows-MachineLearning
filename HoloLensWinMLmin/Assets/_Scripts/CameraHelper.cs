@@ -2,14 +2,22 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using Windows.Media.Capture;
 using Windows.Media.Capture.Frames;
 using Windows.Media.MediaProperties;
 
 public class CameraHelper
 {
-    MediaCapture CameraCapture;
-    MediaFrameReader CameraFrameReader;
+
+    public TimeSpan PredictionFrequency = TimeSpan.FromMilliseconds(400);
+
+
+    private MediaCapture CameraCapture;
+    private MediaFrameReader CameraFrameReader;
+
+
+    private Int64 FramesCaptured;
 
 
     public CameraHelper()
@@ -64,7 +72,48 @@ public class CameraHelper
         await mediaFrameReader.StartAsync();
     }
 
+    private void StartPullFrames(MediaFrameReader sender)
+    {
+        Task.Run(async () =>
+        {
+            while (true) // Forever = While the app runs
+            {
+                FramesCaptured++;
+                System.Diagnostics.Debug.Write(".");
+                await Task.Delay(PredictionFrequency);
+                using (var frameReference = sender.TryAcquireLatestFrame())
+                using (var videoFrame = frameReference?.VideoMediaFrame?.GetVideoFrame())
+                {
 
-   
+                    if (videoFrame == null)
+                    {
+                        continue; //ignoring frame
+                    }
+
+                    if (videoFrame.Direct3DSurface == null)
+                    {
+                        videoFrame.Dispose();
+                        continue; //ignoring frame
+                    }
+
+                    try
+                    {
+                        System.Diagnostics.Debug.WriteLine("Evalutation");
+                        //await EvaluateVideoFrameAsync(videoFrame).ConfigureAwait(false); ;
+                    }
+                    catch (Exception ex)
+                    {
+                        System.Diagnostics.Debug.WriteLine(ex.Message);
+                    }
+                    finally
+                    {
+                    }
+                }
+
+            }
+
+        });
+    }
+
 }
 
