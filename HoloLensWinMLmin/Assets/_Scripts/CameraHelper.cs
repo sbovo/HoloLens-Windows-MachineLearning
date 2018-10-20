@@ -24,6 +24,7 @@ public class CameraHelper
     {
         InitializeCameraCapture();
         InitializeCameraFrameReader();
+        StartPullCameraFrames();
     }
 
     private async void InitializeCameraCapture()
@@ -68,11 +69,11 @@ public class CameraHelper
 
         }).FirstOrDefault();
 
-        var mediaFrameReader = await CameraCapture.CreateFrameReaderAsync(colorFrameSource);
-        await mediaFrameReader.StartAsync();
+        CameraFrameReader = await CameraCapture.CreateFrameReaderAsync(colorFrameSource);
+        await CameraFrameReader.StartAsync();
     }
 
-    private void StartPullFrames(MediaFrameReader sender)
+    private void StartPullCameraFrames()
     {
         Task.Run(async () =>
         {
@@ -81,7 +82,7 @@ public class CameraHelper
                 FramesCaptured++;
                 System.Diagnostics.Debug.Write(".");
                 await Task.Delay(PredictionFrequency);
-                using (var frameReference = sender.TryAcquireLatestFrame())
+                using (var frameReference = CameraFrameReader.TryAcquireLatestFrame())
                 using (var videoFrame = frameReference?.VideoMediaFrame?.GetVideoFrame())
                 {
 
