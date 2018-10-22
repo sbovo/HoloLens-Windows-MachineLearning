@@ -2,7 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StartScanning : MonoBehaviour {
+
+public interface IStartScanning
+{
+    void ModifyOutputText(string newText);
+ 
+}
+public class StartScanning : MonoBehaviour, IStartScanning {
 
 	// Unity 3D Text object that contains 
 	// the displayed TextMesh in the FOV
@@ -11,8 +17,8 @@ public class StartScanning : MonoBehaviour {
 	private TextMesh OutputTextMesh;
 	// string to be affected to the TextMesh object
 	private string OutputTextString = string.Empty;
-	// Indicate if we have to Update the text displayed
-	private bool OutputTextChanged = false;
+    // Indicate if we have to Update the text displayed
+    private bool OutputTextChanged = false;
 
 #if UNITY_WSA && !UNITY_EDITOR
     private CameraHelper Camera;
@@ -25,7 +31,7 @@ public class StartScanning : MonoBehaviour {
 
 #if UNITY_WSA && !UNITY_EDITOR // RUNNING ON WINDOWS
         Camera = new CameraHelper();
-        Camera.StartPullCameraFrames();
+        Camera.StartPullCameraFrames(this);
 #else                          // RUNNING IN UNITY
 		ModifyOutputText("Sorry ;-( The app is not supported in the Unity player.");
 #endif
@@ -37,7 +43,7 @@ public class StartScanning : MonoBehaviour {
 	/// + Indicate that we have to update the text to display
 	/// </summary>
 	/// <param name="newText">new string value to display</param>
-	private void ModifyOutputText(string newText)
+	public void ModifyOutputText(string newText)
 	{
 		OutputTextString = newText;
 		OutputTextChanged = true;
@@ -51,4 +57,5 @@ public class StartScanning : MonoBehaviour {
 			OutputTextChanged = false;
 		}
 	}
+
 }

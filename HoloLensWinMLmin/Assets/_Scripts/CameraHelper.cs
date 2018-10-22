@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
 using Windows.Media.Capture;
 using Windows.Media.Capture.Frames;
 using Windows.Media.MediaProperties;
@@ -72,7 +73,7 @@ public class CameraHelper
         await CameraFrameReader.StartAsync();
     }
 
-    public void StartPullCameraFrames()
+    public void StartPullCameraFrames(IStartScanning unityApp)
     {
         Task.Run(async () =>
         {
@@ -99,6 +100,7 @@ public class CameraHelper
                     try
                     {
                         System.Diagnostics.Debug.WriteLine("Evalutation");
+                        unityApp.ModifyOutputText($"{System.DateTime.Now.Minute}:{System.DateTime.Now.Second}");
                         //await EvaluateVideoFrameAsync(videoFrame).ConfigureAwait(false); ;
                     }
                     catch (Exception ex)
