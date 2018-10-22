@@ -77,7 +77,7 @@ public class CameraHelper
     {
         Task.Run(async () =>
         {
-            while (true) // Forever = While the app runs
+            for (; ; ) // Forever = While the app runs
             {
                 FramesCaptured++;
                 System.Diagnostics.Debug.Write(".");

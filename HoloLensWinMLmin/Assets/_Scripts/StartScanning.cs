@@ -5,7 +5,7 @@ using UnityEngine;
 
 public interface IStartScanning
 {
-    void ModifyOutputText(string newText);
+	void ModifyOutputText(string newText);
  
 }
 public class StartScanning : MonoBehaviour, IStartScanning {
@@ -17,21 +17,21 @@ public class StartScanning : MonoBehaviour, IStartScanning {
 	private TextMesh OutputTextMesh;
 	// string to be affected to the TextMesh object
 	private string OutputTextString = string.Empty;
-    // Indicate if we have to Update the text displayed
-    private bool OutputTextChanged = false;
+	// Indicate if we have to Update the text displayed
+	private bool OutputTextChanged = false;
 
 #if UNITY_WSA && !UNITY_EDITOR
-    private CameraHelper Camera;
+	private CameraHelper Camera;
 #endif
 
-    // Use this for initialization
-    void Start ()
+	// Use this for initialization
+	void Start ()
 	{
 		OutputTextMesh = OutputText.GetComponent<TextMesh>();
 
 #if UNITY_WSA && !UNITY_EDITOR // RUNNING ON WINDOWS
-        Camera = new CameraHelper();
-        Camera.StartPullCameraFrames(this);
+		Camera = new CameraHelper();
+		Camera.StartPullCameraFrames(this);
 #else                          // RUNNING IN UNITY
 		ModifyOutputText("Sorry ;-( The app is not supported in the Unity player.");
 #endif
