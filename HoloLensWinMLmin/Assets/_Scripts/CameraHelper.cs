@@ -24,7 +24,6 @@ public class CameraHelper
     {
         InitializeCameraCapture();
         InitializeCameraFrameReader();
-        StartPullCameraFrames();
     }
 
     private async void InitializeCameraCapture()
@@ -73,7 +72,7 @@ public class CameraHelper
         await CameraFrameReader.StartAsync();
     }
 
-    private void StartPullCameraFrames()
+    public void StartPullCameraFrames()
     {
         Task.Run(async () =>
         {

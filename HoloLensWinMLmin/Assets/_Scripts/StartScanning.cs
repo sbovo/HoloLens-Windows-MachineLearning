@@ -12,17 +12,20 @@ public class StartScanning : MonoBehaviour {
 	// string to be affected to the TextMesh object
 	private string OutputTextString = string.Empty;
 	// Indicate if we have to Update the text displayed
-	bool OutputTextChanged = false;
+	private bool OutputTextChanged = false;
 
+#if UNITY_WSA && !UNITY_EDITOR
+    private CameraHelper Camera;
+#endif
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start ()
 	{
 		OutputTextMesh = OutputText.GetComponent<TextMesh>();
 
 #if UNITY_WSA && !UNITY_EDITOR // RUNNING ON WINDOWS
-		//InitializeModel();
-		//CreateMediaCapture();
+        Camera = new CameraHelper();
+        Camera.StartPullCameraFrames();
 #else                          // RUNNING IN UNITY
 		ModifyOutputText("Sorry ;-( The app is not supported in the Unity player.");
 #endif
