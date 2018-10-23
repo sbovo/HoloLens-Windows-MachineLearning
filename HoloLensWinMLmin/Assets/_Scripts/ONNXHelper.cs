@@ -12,19 +12,10 @@ using Windows.Media;
 using Windows.Storage;
 using Windows.Storage.Streams;
 
-
-
-
-
-
 public sealed class ONNXModelInput
 {
     public VideoFrame Data { get; set; }
 }
-
-
-
-
 
 public sealed class ONNXModelOutput
 {
@@ -32,11 +23,14 @@ public sealed class ONNXModelOutput
     public IList<IDictionary<string, float>> Loss = new List<IDictionary<string, float>>();
 }
 
-
-
-
-
-
+/// <summary>
+/// These classes ONNXModel, ONNXModelInput, ONNXModelOutpu never change
+/// We just load a different custom model
+/// 
+/// In order to evalutate a model:
+/// 1. Call the static method ONNXModel.CreateOnnxModel(<<MyModelStorageFile>>)
+/// 2. Call EvaluateAsync method on the created Model before
+/// </summary>
 public sealed class ONNXModel
 {
     private LearningModel _learningModel = null;

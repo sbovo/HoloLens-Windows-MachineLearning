@@ -2,12 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
-public interface IStartScanning
+/// <summary>
+/// The Interface gives one method to implement. This method modifies the text to display in Unity
+/// Any code can then call this method outside the Unity MonoBehavior object
+/// </summary>
+public interface IStartScanning 
 {
 	void ModifyOutputText(string newText);
  
 }
+
 public class StartScanning : MonoBehaviour, IStartScanning {
 
 	// Unity 3D Text object that contains 
