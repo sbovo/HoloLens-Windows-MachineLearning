@@ -6,13 +6,13 @@ using UnityEngine;
 /// The Interface gives one method to implement. This method modifies the text to display in Unity
 /// Any code can then call this method outside the Unity MonoBehavior object
 /// </summary>
-public interface IStartScanning 
-{
+public interface IUnityScanScene{
 	void ModifyOutputText(string newText);
  
 }
 
-public class StartScanning : MonoBehaviour, IStartScanning {
+public class UnityScanScene : MonoBehaviour, IUnityScanScene
+{
 
 	// Unity 3D Text object that contains 
 	// the displayed TextMesh in the FOV

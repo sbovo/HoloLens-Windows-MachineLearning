@@ -73,7 +73,7 @@ public class CameraHelper
         await CameraFrameReader.StartAsync();
     }
 
-    public void StartPullCameraFrames(IStartScanning unityApp)
+    public void StartPullCameraFrames(IUnityScanScene unityApp)
     {
         Task.Run(async () =>
         {
