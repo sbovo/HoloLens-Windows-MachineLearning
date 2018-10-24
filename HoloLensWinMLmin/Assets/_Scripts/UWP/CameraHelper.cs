@@ -77,6 +77,9 @@ public class CameraHelper
     {
         Task.Run(async () =>
         {
+
+
+            ONNXModelHelper ModelHelper = new ONNXModelHelper(unityApp);
             for (; ; ) // Forever = While the app runs
             {
                 FramesCaptured++;
@@ -101,6 +104,7 @@ public class CameraHelper
                     {
                         System.Diagnostics.Debug.WriteLine("Evalutation");
                         unityApp.ModifyOutputText($"{System.DateTime.Now.Minute}:{System.DateTime.Now.Second}");
+                        await ModelHelper.EvaluateVideoFrameAsync(videoFrame).ConfigureAwait(false);
                         //await EvaluateVideoFrameAsync(videoFrame).ConfigureAwait(false); ;
                     }
                     catch (Exception ex)

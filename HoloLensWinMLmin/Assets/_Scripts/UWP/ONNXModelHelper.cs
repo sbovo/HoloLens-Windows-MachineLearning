@@ -50,7 +50,7 @@ public class ONNXModelHelper
         }
     }
 
-    private async Task EvaluateVideoFrameAsync(VideoFrame frame)
+    public async Task EvaluateVideoFrameAsync(VideoFrame frame)
     {
         if (frame != null)
         {
