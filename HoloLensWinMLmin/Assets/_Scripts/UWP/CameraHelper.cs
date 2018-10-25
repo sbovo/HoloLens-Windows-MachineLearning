@@ -23,11 +23,11 @@ public class CameraHelper
 
     public CameraHelper()
     {
-        InitializeCameraCapture();
-        InitializeCameraFrameReader();
+        InitializeCameraCapture();//.ConfigureAwait(false).GetAwaiter().GetResult();
+        InitializeCameraFrameReader();//.ConfigureAwait(false).GetAwaiter().GetResult();
     }
 
-    private async void InitializeCameraCapture()
+    private async Task InitializeCameraCapture()
     {
         CameraCapture = new MediaCapture();
         MediaCaptureInitializationSettings settings = new MediaCaptureInitializationSettings();
@@ -37,7 +37,7 @@ public class CameraHelper
 
 
 
-    private async void InitializeCameraFrameReader()
+    private async Task InitializeCameraFrameReader()
     {
         var frameSourceGroups = await MediaFrameSourceGroup.FindAllAsync();
 
@@ -103,7 +103,7 @@ public class CameraHelper
                     try
                     {
                         System.Diagnostics.Debug.WriteLine("Evalutation");
-                        unityApp.ModifyOutputText($"{System.DateTime.Now.Minute}:{System.DateTime.Now.Second}");
+                        //unityApp.ModifyOutputText($"{System.DateTime.Now.Minute}:{System.DateTime.Now.Second}");
                         await ModelHelper.EvaluateVideoFrameAsync(videoFrame).ConfigureAwait(false);
                         //await EvaluateVideoFrameAsync(videoFrame).ConfigureAwait(false); ;
                     }

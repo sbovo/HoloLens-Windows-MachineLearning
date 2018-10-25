@@ -11,24 +11,28 @@ using Windows.Storage;
 public class ONNXModelHelper
 {
     private ONNXModel Model = null;
-    private string ModelFilename = "BenoitSeb.onnx";
+    private string ModelFilename = "ONNXModel.onnx";
     private Stopwatch TimeRecorder = new Stopwatch();
     private IUnityScanScene UnityApp;
 
     public ONNXModelHelper()
     {
         UnityApp = null;
-        LoadModelAsync();
+        LoadModelSync();
     }
 
     public ONNXModelHelper(IUnityScanScene unityApp)
     {
         UnityApp = unityApp;
-        LoadModelAsync();
+        LoadModelSync();
     }
 
+    private void LoadModelSync()
+    {
+        LoadModelAsync();//.ConfigureAwait(false).GetAwaiter().GetResult();
+    }
 
-    private async void LoadModelAsync()
+    private async Task LoadModelAsync()
     {
         ModifyText($"Loading {ModelFilename}... Patience");
 
@@ -67,7 +71,7 @@ public class ONNXModelHelper
 
                 var lossStr = string.Join(product, " " + (loss * 100.0f).ToString("#0.00") + "%");
                 string message = $"({DateTime.Now.Minute}:{DateTime.Now.Second})" +
-                    " Evaluation took {TimeRecorder.ElapsedMilliseconds}ms to execute\n" +
+                    $" Evaluation took {TimeRecorder.ElapsedMilliseconds}ms to execute\n" +
                     $"Predictions: {lossStr}";
                 message = message.Replace("\\n", "\n");
 
