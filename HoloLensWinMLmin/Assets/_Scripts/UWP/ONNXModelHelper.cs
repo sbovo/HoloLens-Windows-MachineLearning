@@ -18,21 +18,14 @@ public class ONNXModelHelper
     public ONNXModelHelper()
     {
         UnityApp = null;
-        LoadModelSync();
     }
 
     public ONNXModelHelper(IUnityScanScene unityApp)
     {
         UnityApp = unityApp;
-        LoadModelSync();
     }
 
-    private void LoadModelSync()
-    {
-        LoadModelAsync();//.ConfigureAwait(false).GetAwaiter().GetResult();
-    }
-
-    private async Task LoadModelAsync()
+    public async Task LoadModelAsync()
     {
         ModifyText($"Loading {ModelFilename}... Patience");
 
@@ -40,7 +33,8 @@ public class ONNXModelHelper
         {
             TimeRecorder = Stopwatch.StartNew();
 
-            var modelFile = await StorageFile.GetFileFromApplicationUriAsync(new Uri($"ms-appx:///Data/StreamingAssets/{ModelFilename}"));
+            var modelFile = await StorageFile.GetFileFromApplicationUriAsync(
+                new Uri($"ms-appx:///Data/StreamingAssets/{ModelFilename}"));
             Model = await ONNXModel.CreateOnnxModel(modelFile);
 
             TimeRecorder.Stop();
@@ -63,7 +57,7 @@ public class ONNXModelHelper
                 TimeRecorder.Restart();
                 ONNXModelInput inputData = new ONNXModelInput();
                 inputData.Data = frame;
-                var output = await Model.EvaluateAsync(inputData);
+                var output = await Model.EvaluateAsync(inputData).ConfigureAwait(false);
 
                 var product = output.ClassLabel.GetAsVectorView()[0];
                 var loss = output.Loss[0][product];

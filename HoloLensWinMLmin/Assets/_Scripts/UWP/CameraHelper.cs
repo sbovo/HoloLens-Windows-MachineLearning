@@ -20,11 +20,20 @@ public class CameraHelper
 
     private Int64 FramesCaptured;
 
+    ONNXModelHelper ModelHelper;
+
 
     public CameraHelper()
+    { 
+    }
+
+    public async Task Inititalize(IUnityScanScene unityApp)
     {
-        InitializeCameraCapture();//.ConfigureAwait(false).GetAwaiter().GetResult();
-        InitializeCameraFrameReader();//.ConfigureAwait(false).GetAwaiter().GetResult();
+        ModelHelper = new ONNXModelHelper(unityApp);
+        await ModelHelper.LoadModelAsync();
+
+        await InitializeCameraCapture();
+        await InitializeCameraFrameReader();
     }
 
     private async Task InitializeCameraCapture()
@@ -39,8 +48,7 @@ public class CameraHelper
 
     private async Task InitializeCameraFrameReader()
     {
-        var frameSourceGroups = await MediaFrameSourceGroup.FindAllAsync();
-
+        var frameSourceGroups = await MediaFrameSourceGroup.FindAllAsync(); 
         MediaFrameSourceGroup selectedGroup = null;
         MediaFrameSourceInfo colorSourceInfo = null;
 
@@ -77,9 +85,6 @@ public class CameraHelper
     {
         Task.Run(async () =>
         {
-
-
-            ONNXModelHelper ModelHelper = new ONNXModelHelper(unityApp);
             for (; ; ) // Forever = While the app runs
             {
                 FramesCaptured++;
@@ -105,7 +110,6 @@ public class CameraHelper
                         System.Diagnostics.Debug.WriteLine("Evalutation");
                         //unityApp.ModifyOutputText($"{System.DateTime.Now.Minute}:{System.DateTime.Now.Second}");
                         await ModelHelper.EvaluateVideoFrameAsync(videoFrame).ConfigureAwait(false);
-                        //await EvaluateVideoFrameAsync(videoFrame).ConfigureAwait(false); ;
                     }
                     catch (Exception ex)
                     {
