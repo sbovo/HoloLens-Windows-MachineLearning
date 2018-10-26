@@ -28,7 +28,7 @@ public class UnityScanScene : MonoBehaviour, IUnityScanScene
     
 
 #if UNITY_WSA && !UNITY_EDITOR
-    private CameraHelper Camera;
+    private ScanEngine Camera;
 #endif
 
 	// Use this for initialization
@@ -41,9 +41,9 @@ public class UnityScanScene : MonoBehaviour, IUnityScanScene
 
 
 
-        Camera = new CameraHelper();
+        Camera = new ScanEngine();
         await Camera.Inititalize(this);
-		Camera.StartPullCameraFrames(this);
+		Camera.StartPullCameraFrames();
 #else                          // RUNNING IN UNITY
 		ModifyOutputText("Sorry ;-( The app is not supported in the Unity player.");
 #endif

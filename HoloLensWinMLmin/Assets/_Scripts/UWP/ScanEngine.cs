@@ -9,7 +9,7 @@ using Windows.Media.Capture;
 using Windows.Media.Capture.Frames;
 using Windows.Media.MediaProperties;
 
-public class CameraHelper
+public class ScanEngine
 {
 
     public TimeSpan PredictionFrequency = TimeSpan.FromMilliseconds(400);
@@ -21,15 +21,17 @@ public class CameraHelper
     private Int64 FramesCaptured;
 
     ONNXModelHelper ModelHelper;
+    IUnityScanScene UnityApp;
 
 
-    public CameraHelper()
+    public ScanEngine()
     { 
     }
 
     public async Task Inititalize(IUnityScanScene unityApp)
     {
-        ModelHelper = new ONNXModelHelper(unityApp);
+        UnityApp = unityApp;
+        ModelHelper = new ONNXModelHelper(UnityApp);
         await ModelHelper.LoadModelAsync();
 
         await InitializeCameraCapture();
@@ -81,7 +83,7 @@ public class CameraHelper
         await CameraFrameReader.StartAsync();
     }
 
-    public void StartPullCameraFrames(IUnityScanScene unityApp)
+    public void StartPullCameraFrames()
     {
         Task.Run(async () =>
         {
