@@ -11,8 +11,12 @@ The minimal sample code. The objectives are:
 
 - Load the MachineLearning model
 
-- Execute the model and get the prodictions from each captured frame
+- Execute the model and get the predictions from each captured frame
 
 ## HoloLensWinML
 
 Use the Mixed Reality toolkit in order to have a nice UI.
+
+
+
+> **Note:** Windows build > 17738 is needed to be able to run the Windows.AI.MachineLearning APIs
