@@ -64,8 +64,15 @@ public class ONNXModelHelper
 
                 var lossStr = string.Join(product, " " + (loss * 100.0f).ToString("#0.00") + "%");
                 string message = $"({DateTime.Now.Hour}:{DateTime.Now.Minute}:{DateTime.Now.Second})" +
-                    $" Evaluation took {TimeRecorder.ElapsedMilliseconds}ms\n" +
-                    $"Prediction: {product} {lossStr}";
+                    $" Evaluation took {TimeRecorder.ElapsedMilliseconds}ms\n";
+
+                string prediction = $"Prediction: {product} {lossStr}";
+                System.Diagnostics.Debug.WriteLine(prediction);
+                if (loss > 0.5f)
+                {
+                    message += prediction;
+                }
+
                 message = message.Replace("\\n", "\n");
 
                 ModifyText(message);
