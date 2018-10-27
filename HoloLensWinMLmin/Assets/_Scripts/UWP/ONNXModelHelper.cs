@@ -38,11 +38,10 @@ public class ONNXModelHelper
             Model = await ONNXModel.CreateOnnxModel(modelFile);
 
             TimeRecorder.Stop();
-            System.Diagnostics.Debug.WriteLine($"Loaded {ModelFilename}: Elapsed time: {TimeRecorder.ElapsedMilliseconds} ms");
+            ModifyText($"Loaded {ModelFilename}: Elapsed time: {TimeRecorder.ElapsedMilliseconds} ms");
         }
         catch (Exception ex)
         {
-            System.Diagnostics.Debug.WriteLine($"error: {ex.Message}");
             ModifyText($"error: {ex.Message}");
             Model = null;
         }
@@ -64,30 +63,16 @@ public class ONNXModelHelper
                 TimeRecorder.Stop();
 
                 var lossStr = string.Join(product, " " + (loss * 100.0f).ToString("#0.00") + "%");
-                string message = $"({DateTime.Now.Minute}:{DateTime.Now.Second})" +
-                    $" Evaluation took {TimeRecorder.ElapsedMilliseconds}ms to execute\n" +
-                    $"Predictions: {lossStr}";
+                string message = $"({DateTime.Now.Hour}:{DateTime.Now.Minute}:{DateTime.Now.Second})" +
+                    $" Evaluation took {TimeRecorder.ElapsedMilliseconds}ms\n" +
+                    $"Prediction: {product} {lossStr}";
                 message = message.Replace("\\n", "\n");
-
-                //String allPredictionString = "(" + i + ")" + Environment.NewLine +
-                //    output.ClassLabel.GetAsVectorView()[0] + " - "
-                //        + (output.Loss[0][output.ClassLabel.GetAsVectorView()[0]] * 100.0f).ToString("#0.00") + "%"
-                //        + Environment.NewLine +
-                //    output.ClassLabel.GetAsVectorView()[1] + " - "
-                //        + (output.Loss[1][output.ClassLabel.GetAsVectorView()[1]] * 100.0f).ToString("#0.00") + "%"
-                //        + Environment.NewLine;
-
-
-
-                System.Diagnostics.Debug.WriteLine(message);
-                //System.Diagnostics.Debug.WriteLine(allPredictionString);
 
                 ModifyText(message);
             }
             catch (Exception ex)
             {
                 var err_message = $"error: {ex.Message}";
-                System.Diagnostics.Debug.WriteLine(err_message);
                 ModifyText(err_message);
             }
         }
@@ -96,7 +81,7 @@ public class ONNXModelHelper
 
     private void ModifyText(string text)
     {
-
+        System.Diagnostics.Debug.WriteLine(text);
         if (UnityApp != null)
         {
             UnityApp.ModifyOutputText(text);
