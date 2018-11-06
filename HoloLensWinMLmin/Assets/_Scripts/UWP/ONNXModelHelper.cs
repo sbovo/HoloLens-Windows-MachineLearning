@@ -67,7 +67,6 @@ public class ONNXModelHelper
                     $" Evaluation took {TimeRecorder.ElapsedMilliseconds}ms\n";
 
                 string prediction = $"Prediction: {product} {lossStr}";
-                System.Diagnostics.Debug.WriteLine(prediction);
                 if (loss > 0.5f)
                 {
                     message += prediction;

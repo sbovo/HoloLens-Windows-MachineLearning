@@ -90,7 +90,6 @@ public class ScanEngine
             for (; ; ) // Forever = While the app runs
             {
                 FramesCaptured++;
-                System.Diagnostics.Debug.Write(".");
                 await Task.Delay(PredictionFrequency);
                 using (var frameReference = CameraFrameReader.TryAcquireLatestFrame())
                 using (var videoFrame = frameReference?.VideoMediaFrame?.GetVideoFrame())
@@ -109,8 +108,6 @@ public class ScanEngine
 
                     try
                     {
-                        System.Diagnostics.Debug.WriteLine("Evalutation");
-                        //unityApp.ModifyOutputText($"{System.DateTime.Now.Minute}:{System.DateTime.Now.Second}");
                         await ModelHelper.EvaluateVideoFrameAsync(videoFrame).ConfigureAwait(false);
                     }
                     catch (Exception ex)
