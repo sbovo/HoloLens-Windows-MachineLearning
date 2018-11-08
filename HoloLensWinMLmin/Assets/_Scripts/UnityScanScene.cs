@@ -13,7 +13,6 @@ public interface IUnityScanScene{
 
 public class UnityScanScene : MonoBehaviour, IUnityScanScene
 {
-
 	// Unity 3D Text object that contains 
 	// the displayed TextMesh in the FOV
 	public GameObject OutputText;
@@ -24,11 +23,8 @@ public class UnityScanScene : MonoBehaviour, IUnityScanScene
 	// Indicate if we have to Update the text displayed
 	private bool OutputTextChanged = false;
 
-
-    
-
 #if UNITY_WSA && !UNITY_EDITOR
-    private ScanEngine Camera;
+    private ScanEngine CameraScanEngine;
 #endif
 
 	// Use this for initialization
@@ -37,15 +33,11 @@ public class UnityScanScene : MonoBehaviour, IUnityScanScene
 		OutputTextMesh = OutputText.GetComponent<TextMesh>();
 
 #if UNITY_WSA && !UNITY_EDITOR // RUNNING ON WINDOWS
-
-
-
-
-        Camera = new ScanEngine();
-        await Camera.Inititalize(this);
-		Camera.StartPullCameraFrames();
+        CameraScanEngine = new ScanEngine();
+        await CameraScanEngine.Inititalize(this);
+		CameraScanEngine.StartPullCameraFrames();
 #else                          // RUNNING IN UNITY
-		ModifyOutputText("Sorry ;-( The app is not supported in the Unity player.");
+        ModifyOutputText("Sorry ;-( The app is not supported in the Unity player.");
 #endif
 	}
 
@@ -62,7 +54,8 @@ public class UnityScanScene : MonoBehaviour, IUnityScanScene
 	}
 
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
 		if (OutputTextChanged)
 		{
 			OutputTextMesh.text = OutputTextString;
