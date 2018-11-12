@@ -31,6 +31,7 @@ public class UnityScanScene : MonoBehaviour, IUnityScanScene
 	async void Start ()
 	{
 		OutputTextMesh = OutputText.GetComponent<TextMesh>();
+        OutputTextMesh.text = string.Empty;
 
 #if UNITY_WSA && !UNITY_EDITOR // RUNNING ON WINDOWS
         CameraScanEngine = new ScanEngine();
