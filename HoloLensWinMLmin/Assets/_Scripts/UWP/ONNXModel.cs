@@ -2,15 +2,10 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using Windows.AI.MachineLearning.Preview;
 using Windows.AI.MachineLearning;
 using Windows.Media;
 using Windows.Storage;
-using Windows.Storage.Streams;
 
 public sealed class ONNXModelInput
 {
@@ -24,7 +19,7 @@ public sealed class ONNXModelOutput
 }
 
 /// <summary>
-/// These classes ONNXModel, ONNXModelInput, ONNXModelOutpu never change
+/// These classes ONNXModel, ONNXModelInput, ONNXModelOutput never change
 /// We just load a different custom model
 /// 
 /// In order to evalutate a model:

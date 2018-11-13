@@ -1,19 +1,14 @@
 ﻿#if UNITY_WSA && !UNITY_EDITOR
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using UnityEngine;
 using Windows.Media.Capture;
 using Windows.Media.Capture.Frames;
 using Windows.Media.MediaProperties;
 
 public class ScanEngine
 {
-
     public TimeSpan PredictionFrequency = TimeSpan.FromMilliseconds(400);
-
 
     private MediaCapture CameraCapture;
     private MediaFrameReader CameraFrameReader;
@@ -45,9 +40,7 @@ public class ScanEngine
         settings.StreamingCaptureMode = StreamingCaptureMode.Video;
         await CameraCapture.InitializeAsync(settings);
     }
-
-
-
+       
     private async Task InitializeCameraFrameReader()
     {
         var frameSourceGroups = await MediaFrameSourceGroup.FindAllAsync(); 
@@ -125,5 +118,4 @@ public class ScanEngine
     }
 
 }
-
 #endif
