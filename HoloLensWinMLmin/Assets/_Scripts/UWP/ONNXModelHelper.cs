@@ -1,10 +1,7 @@
 ﻿#if UNITY_WSA && !UNITY_EDITOR
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading.Tasks;
-using UnityEngine;
 using Windows.Media;
 using Windows.Storage;
 
