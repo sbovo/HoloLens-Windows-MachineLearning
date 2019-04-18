@@ -1,0 +1,9 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <UnityWSASolutionName>HoloLensWinMLmin</UnityWSASolutionName>
+        <UnityWSASolutionDir>C:\_Dev\GitHub\sbovo\HoloLens-Windows-MachineLearning\HoloLensWinMLmin\App_Devoxx\</UnityWSASolutionDir>
+        <UnityProjectDir>C:\_Dev\GitHub\sbovo\HoloLens-Windows-MachineLearning\HoloLensWinMLmin\</UnityProjectDir>
+        <UnityWSAPlayerDir>C:\Program Files\Unity\Hub\Editor\2017.4.20f2\Editor\Data\PlaybackEngines\MetroSupport\</UnityWSAPlayerDir>
+        <UnityWSAToolsDir>$(UnityWSASolutionDir)Unity\Tools\</UnityWSAToolsDir>
+    </PropertyGroup>
+</Project>
