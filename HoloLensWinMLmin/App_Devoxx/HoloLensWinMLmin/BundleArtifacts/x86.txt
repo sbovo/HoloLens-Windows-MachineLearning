@@ -1,0 +1,1 @@
+MainPackage=C:\_Dev\GitHub\sbovo\HoloLens-Windows-MachineLearning\HoloLensWinMLmin\App_Devoxx\HoloLensWinMLmin\bin\x86\Master\HoloLensWinMLmin_1.0.0.0_x86_Master.appx
