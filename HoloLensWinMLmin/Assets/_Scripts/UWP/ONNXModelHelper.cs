@@ -7,6 +7,7 @@ using Windows.Storage;
 
 public class ONNXModelHelper
 {
+    #region members
     private ONNXModel Model = null;
     private string ModelFilename = "ONNXModel.onnx";
     private Stopwatch TimeRecorder = new Stopwatch();
@@ -21,6 +22,7 @@ public class ONNXModelHelper
     {
         UnityApp = unityApp;
     }
+    #endregion
 
     public async Task LoadModelAsync()
     {

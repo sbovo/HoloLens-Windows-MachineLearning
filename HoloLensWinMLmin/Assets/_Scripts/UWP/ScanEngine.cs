@@ -43,6 +43,7 @@ public class ScanEngine
        
     private async Task InitializeCameraFrameReader()
     {
+        #region init
         var frameSourceGroups = await MediaFrameSourceGroup.FindAllAsync(); 
         MediaFrameSourceGroup selectedGroup = null;
         MediaFrameSourceInfo colorSourceInfo = null;
@@ -71,6 +72,7 @@ public class ScanEngine
             return format.Subtype == MediaEncodingSubtypes.Argb32;
 
         }).FirstOrDefault();
+        #endregion
 
         CameraFrameReader = await CameraCapture.CreateFrameReaderAsync(colorFrameSource);
         await CameraFrameReader.StartAsync();
