@@ -511,16 +511,16 @@ PlayerSettings:
   apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: HoloLensWinMLmin
+  metroPackageName: WinMLThumbs
   metroPackageVersion: 1.0.0.0
   metroCertificatePath: Assets\WSATestCertificate.pfx
   metroCertificatePassword: 
   metroCertificateSubject: DefaultCompany
   metroCertificateIssuer: DefaultCompany
   metroCertificateNotAfter: 80624b90c086d501
-  metroApplicationDescription: HoloLensWinMLmin
+  metroApplicationDescription: WinMLThumbs
   wsaImages: {}
-  metroTileShortName: HoloLensWinMLmin
+  metroTileShortName: WinMLThumbs
   metroTileShowName: 0
   metroMediumTileShowName: 0
   metroLargeTileShowName: 0
@@ -536,31 +536,50 @@ PlayerSettings:
   platformCapabilities:
     WindowsStoreApps:
       AllJoyn: False
+      Appointments: False
+      BackgroundMediaPlayback: False
       BlockedChatMessages: False
       Bluetooth: False
       Chat: False
       CodeGeneration: False
+      Contacts: False
       EnterpriseAuthentication: False
       HumanInterfaceDevice: False
       InputInjectionBrokered: False
       InternetClient: False
       InternetClientServer: False
       Location: False
+      LowLevelDevices: False
       Microphone: False
       MusicLibrary: False
       Objects3D: False
+      OfflineMapsManagement: False
       PhoneCall: False
+      PhoneCallHistoryPublic: False
       PicturesLibrary: False
+      PointOfService: False
       PrivateNetworkClientServer: False
       Proximity: False
+      RecordedCallsFolder: False
+      RemoteSystem: False
       RemovableStorage: False
       SharedUserCertificates: False
       SpatialPerception: False
+      SystemManagement: False
       UserAccountInformation: False
+      UserDataTasks: False
+      UserNotificationListener: False
       VideosLibrary: False
       VoipCall: False
       WebCam: True
-  metroTargetDeviceFamilies: {}
+  metroTargetDeviceFamilies:
+    Desktop: False
+    Holographic: False
+    IoT: False
+    IoTHeadless: False
+    Mobile: False
+    Team: False
+    Xbox: False
   metroFTAName: 
   metroFTAFileTypes: []
   metroProtocolName: 
