@@ -12,7 +12,7 @@ The minimal sample code. The objectives are:
 
 ## [HoloLensV2WinML](./HoloLensV2WinML) ➡ HOLOLENS V2
 
-The app takes the live stream of the HoloLens camera and evalute locally the ONNX model **to recognize up/down thumbs**.
+The app takes the live stream of the HoloLens camera and evalutes locally the ONNX model **to recognize up/down thumbs**.
 The app targets HoloLens V2 in 32bits ARM.
 
 ### Versions used
