@@ -8,7 +8,7 @@ using Windows.Media.MediaProperties;
 
 public class ScanEngine
 {
-    public TimeSpan PredictionFrequency = TimeSpan.FromMilliseconds(400);
+    public TimeSpan PredictionFrequency = TimeSpan.FromMilliseconds(100);
 
     private MediaCapture CameraCapture;
     private MediaFrameReader CameraFrameReader;
