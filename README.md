@@ -3,6 +3,19 @@
 The way to train your model in the Cloud and run it locally on the HoloLens!
 
 
+## HoloLensV2WinML
+
+The app takes the live stream of the HoloLens camera and evalute locally the ONNX model to recognize up/down thumbs.
+The apps target HoloLens V2 in 32bits ARM
+
+### Versions used
+- Windows version 1809 for the PC
+- HoloLens V2
+- Visual Studio 2019
+- Windows 10 SDK 10.0.18362.0
+- Unity 2017.8.3.8f1
+
+
 ## HoloLensWinMLmin
 
 The minimal sample code. The objectives are:
@@ -12,7 +25,7 @@ The minimal sample code. The objectives are:
 
 > **Note:** Windows version 1809 i.e. build > 17738 is needed to be able to run the Windows.AI.MachineLearning APIs
 
-## Versions used
+### Versions used
 - Windows version 1809 for the PC and HoloLens
 - Visual Studio 2017 version 15.9.0
 - Windows SDK version 10.0.17763.0
