@@ -1,12 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.9.28307.518
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.202
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HoloLensWinMLmin", "HoloLensWinMLmin\HoloLensWinMLmin.csproj", "{13A45C13-3265-47B8-BC48-A553B569DF55}"
-		{2bbf84f2-9910-4d97-9fc0-cea980b9dee9} = {2bbf84f2-9910-4d97-9fc0-cea980b9dee9}
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "C:\_Dev\GitHub\sbovo\HoloLens-Windows-MachineLearning\HoloLensWinMLmin\App_Thumbs\GeneratedProjects\UWP\Assembly-CSharp\Assembly-CSharp.csproj", "{2bbf84f2-9910-4d97-9fc0-cea980b9dee9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "C:\_Dev\GitHub\sbovo\HoloLens-Windows-MachineLearning\HoloLensWinMLmin\App_Thumbs\GeneratedProjects\UWP\Assembly-CSharp\Assembly-CSharp.csproj", "{2BBF84F2-9910-4D97-9FC0-CEA980B9DEE9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -48,26 +47,29 @@ Global
 		{13A45C13-3265-47B8-BC48-A553B569DF55}.Release|x86.ActiveCfg = Release|x86
 		{13A45C13-3265-47B8-BC48-A553B569DF55}.Release|x86.Build.0 = Release|x86
 		{13A45C13-3265-47B8-BC48-A553B569DF55}.Release|x86.Deploy.0 = Release|x86
-		{2bbf84f2-9910-4d97-9fc0-cea980b9dee9}.Debug|x86.ActiveCfg = Debug|x86
-		{2bbf84f2-9910-4d97-9fc0-cea980b9dee9}.Debug|x86.Build.0 = Debug|x86
-		{2bbf84f2-9910-4d97-9fc0-cea980b9dee9}.Release|x86.ActiveCfg = Release|x86
-		{2bbf84f2-9910-4d97-9fc0-cea980b9dee9}.Release|x86.Build.0 = Release|x86
-		{2bbf84f2-9910-4d97-9fc0-cea980b9dee9}.Master|x86.ActiveCfg = Master|x86
-		{2bbf84f2-9910-4d97-9fc0-cea980b9dee9}.Master|x86.Build.0 = Master|x86
-		{2bbf84f2-9910-4d97-9fc0-cea980b9dee9}.Debug|x64.ActiveCfg = Debug|x64
-		{2bbf84f2-9910-4d97-9fc0-cea980b9dee9}.Debug|x64.Build.0 = Debug|x64
-		{2bbf84f2-9910-4d97-9fc0-cea980b9dee9}.Release|x64.ActiveCfg = Release|x64
-		{2bbf84f2-9910-4d97-9fc0-cea980b9dee9}.Release|x64.Build.0 = Release|x64
-		{2bbf84f2-9910-4d97-9fc0-cea980b9dee9}.Master|x64.ActiveCfg = Master|x64
-		{2bbf84f2-9910-4d97-9fc0-cea980b9dee9}.Master|x64.Build.0 = Master|x64
-		{2bbf84f2-9910-4d97-9fc0-cea980b9dee9}.Debug|ARM.ActiveCfg = Debug|ARM
-		{2bbf84f2-9910-4d97-9fc0-cea980b9dee9}.Debug|ARM.Build.0 = Debug|ARM
-		{2bbf84f2-9910-4d97-9fc0-cea980b9dee9}.Release|ARM.ActiveCfg = Release|ARM
-		{2bbf84f2-9910-4d97-9fc0-cea980b9dee9}.Release|ARM.Build.0 = Release|ARM
-		{2bbf84f2-9910-4d97-9fc0-cea980b9dee9}.Master|ARM.ActiveCfg = Master|ARM
-		{2bbf84f2-9910-4d97-9fc0-cea980b9dee9}.Master|ARM.Build.0 = Master|ARM
- EndGlobalSection
+		{2BBF84F2-9910-4D97-9FC0-CEA980B9DEE9}.Debug|ARM.ActiveCfg = Debug|ARM
+		{2BBF84F2-9910-4D97-9FC0-CEA980B9DEE9}.Debug|ARM.Build.0 = Debug|ARM
+		{2BBF84F2-9910-4D97-9FC0-CEA980B9DEE9}.Debug|x64.ActiveCfg = Debug|x64
+		{2BBF84F2-9910-4D97-9FC0-CEA980B9DEE9}.Debug|x64.Build.0 = Debug|x64
+		{2BBF84F2-9910-4D97-9FC0-CEA980B9DEE9}.Debug|x86.ActiveCfg = Debug|x86
+		{2BBF84F2-9910-4D97-9FC0-CEA980B9DEE9}.Debug|x86.Build.0 = Debug|x86
+		{2BBF84F2-9910-4D97-9FC0-CEA980B9DEE9}.Master|ARM.ActiveCfg = Master|ARM
+		{2BBF84F2-9910-4D97-9FC0-CEA980B9DEE9}.Master|ARM.Build.0 = Master|ARM
+		{2BBF84F2-9910-4D97-9FC0-CEA980B9DEE9}.Master|x64.ActiveCfg = Master|x64
+		{2BBF84F2-9910-4D97-9FC0-CEA980B9DEE9}.Master|x64.Build.0 = Master|x64
+		{2BBF84F2-9910-4D97-9FC0-CEA980B9DEE9}.Master|x86.ActiveCfg = Master|x86
+		{2BBF84F2-9910-4D97-9FC0-CEA980B9DEE9}.Master|x86.Build.0 = Master|x86
+		{2BBF84F2-9910-4D97-9FC0-CEA980B9DEE9}.Release|ARM.ActiveCfg = Release|ARM
+		{2BBF84F2-9910-4D97-9FC0-CEA980B9DEE9}.Release|ARM.Build.0 = Release|ARM
+		{2BBF84F2-9910-4D97-9FC0-CEA980B9DEE9}.Release|x64.ActiveCfg = Release|x64
+		{2BBF84F2-9910-4D97-9FC0-CEA980B9DEE9}.Release|x64.Build.0 = Release|x64
+		{2BBF84F2-9910-4D97-9FC0-CEA980B9DEE9}.Release|x86.ActiveCfg = Release|x86
+		{2BBF84F2-9910-4D97-9FC0-CEA980B9DEE9}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5D5B673B-AD29-4B37-9C8F-85A6EF762059}
 	EndGlobalSection
 EndGlobal
