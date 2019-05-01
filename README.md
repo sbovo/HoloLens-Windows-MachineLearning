@@ -10,7 +10,7 @@ The minimal sample code. The objectives are:
 > **Note:** Windows version 1809 i.e. build > 17738 is needed to be able to run the Windows.AI.MachineLearning APIs
 
 
-## HoloLensV2WinML ➡ HOLOLENS V2
+## HoloLensV2WinML[HoloLensV2WinML] ➡ HOLOLENS V2
 
 The app takes the live stream of the HoloLens camera and evalute locally the ONNX model to recognize up/down thumbs.
 The app targets HoloLens V2 in 32bits ARM.
@@ -23,7 +23,7 @@ The app targets HoloLens V2 in 32bits ARM.
 - Unity 2017.8.3.8f1
 
 
-## HoloLensWinMLmin ➡ HOLOLENS V1
+## HoloLensWinMLmin[HoloLensWinMLmin] ➡ HOLOLENS V1
 
 Same app for HoloLens V1.
 
